@@ -5,7 +5,7 @@ import json
 import os
 import time
 
-file = open("zhangjuzheng.json", 'r', encoding='utf-8')
+file = open("zhangjuzheng.standard.json", 'r', encoding='utf-8')
 data = file.read()
 chapters = json.loads(data)
 #print("数据类型：")
@@ -26,12 +26,12 @@ for chapter in chapters:
 #以上
 
 for chapter in chapters:
-    print(chapter.get('chapterName'))
+    print("# "+chapter.get('chapterName'))
     print(chapter.get('introduction'))
     i = int(1)
     for paragraph in chapter.get('paragraphs'):
-        print (i)
+        print ("## "+chapter.get('chapterName')+" 之 "+str(i))
         for sents in paragraph:
-            print ("# 原文： " + sents.get('originalText'))
-            print ("直解： " + sents.get('explain'))
+            print ("### 原文： " + sents.get('originalText'))
+            print ("**直解**： " + sents.get('explain'))
         i += 1
